@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Play";
+    src: url("../assets/fonts/Play-Regular.ttf");
+  }

@@ -1,3 +1,12 @@
+import Image from "next/image";
+
 export default function Page() {
-  return <h1 className="text-3xl font-bold">Welcome to Anusha's Library!</h1>
+  return <>
+    <div className="bg-green-600 body-font font-play">
+      <div className="text-3xl font-bold text-center">Welcome to Anusha's Library</div>
+      <div className="grid grid-cols-10 gap-2">
+
+      </div>
+    </div>
+  </>
 }
