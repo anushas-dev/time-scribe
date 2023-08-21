@@ -11,8 +11,8 @@ const book = g.model('Book', {
 
 const author = g.model('Author', {
   id: g.id().unique(),
-  first_name: g.string(),
-  last_name: g.string(),
+  firstName: g.string(),
+  lastName: g.string(),
 })
 
 const genre = g.model('Genre', {
