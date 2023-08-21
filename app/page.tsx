@@ -1,11 +1,20 @@
 import Image from "next/image";
+import type { AppProps } from 'next/app'
+import Layout from '../components/layout'
+import { Provider as UrqlProvider, Client } from 'urql'
+import { ThemeProvider } from 'next-themes'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-export default function Page() {
-  return <>
-    <div className="body-font font-play">
-      <div className="text-3xl font-bold text-center">Welcome to Anusha's Library</div>
-      <div className="grid grid-cols-10 gap-2">
-      </div>
-    </div>
-  </>
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider attribute="class">
+      <UrqlProvider value={Client}>
+        <Layout>
+          <Component {...pageProps} />
+          <ToastContainer />
+        </Layout>
+      </UrqlProvider>
+    </ThemeProvider>
+  )
 }
