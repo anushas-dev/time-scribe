@@ -9,8 +9,8 @@ type Book @model {
 
 type Author @model {
   id: ID!
-  first_name: String!
-  last_name: String!
+  firstName: String!
+  lastName: String!
 }
 
 type Genre @model {
