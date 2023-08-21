@@ -1,23 +1,23 @@
 import { g, config } from '@grafbase/sdk'
 
-const comment = g.model('Comment', {
-  content: g.string(),
-  user: g.relation(() => user).optional(),
-  post: g.relation(() => post)
-})
-
-const post = g.model('Post', {
-  slug: g.string().unique(),
+const book = g.model('Book', {
+  id: g.id().unique(),
   title: g.string(),
-  content: g.string().optional(),
-  user: g.relation(() => user),
-  comments: g.relation(comment).optional().list().optional()
+  genre: g.relation(() => genre).optional(),
+  author: g.relation(() => author),
+  isbn: g.id().unique(),
+  asin: g.id().unique(),
 })
 
-const user = g.model('User', {
-  email: g.email().unique(),
+const author = g.model('Author', {
+  id: g.id().unique(),
+  first_name: g.string(),
+  last_name: g.string(),
+})
+
+const genre = g.model('Genre', {
+  id: g.id().unique(),
   name: g.string(),
-  posts: g.relation(post).optional().list().optional()
 })
 
 export default config({
