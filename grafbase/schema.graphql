@@ -3,6 +3,6 @@ type Book @model {
   title: String!
   genre: String!
   isbn: ID! @unique
-  asin: ID @unique
+  asin: ID
   author: String!
 }
