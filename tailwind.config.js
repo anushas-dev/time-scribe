@@ -9,9 +9,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      play: ['Play']
-    },
     plugins: [],
   }
 }

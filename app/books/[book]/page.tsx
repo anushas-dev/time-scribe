@@ -1,7 +1,7 @@
 export default function Page() {
     return <>
-      <div className="body-font font-play">
-        <h1 className="text-3xl font-bold text-center">Book Name</h1>
+      <div>
+        <h1 className="text-3xl text-green-600 font-bold text-center">Book Name</h1>
         <p>Book Description</p>
         <p>Book Genre</p>
         <p>Book Author</p>
