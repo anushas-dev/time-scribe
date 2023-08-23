@@ -1,19 +1,8 @@
 type Book @model {
   id: ID!
   title: String!
-  genre: [Genre]
+  genre: String!
   isbn: ID!
   asin: ID
-  author: [Author]
-}
-
-type Author @model {
-  id: ID!
-  firstName: String!
-  lastName: String!
-}
-
-type Genre @model {
-  id: ID!
-  name: String!
+  author: String!
 }
