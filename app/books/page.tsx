@@ -30,12 +30,28 @@ export default function Page() {
         </div>
       </div>
     </nav>
-    <div>
-      <h1 className="text-3xl mt-5  text-green-600 font-bold text-center">Currently Reading</h1>
-      <div className="mx-auto mt-5 max-w-3xl rounded-2xl ring-1 ring-gray-200 px-10 py-5">
-        This section will show the current reads in the shelf - Share notes and highlights
+    <div className="body-font font-play">
+      <h1 className="text-3xl mt-5  font-bold text-center text-green-600">Books</h1>
+      <br></br><br></br>
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-l text-left text-green-600 dark:text-green-700">
+          <thead>
+            <tr>
+              <th scope="col">Book Title</th>
+              <th scope="col">Author</th>
+              <th scope="col">Genre</th>
+              <th scope="col">ISBN</th>
+              <th scope="col">ASIN</th>
+              <th scope="col">Author</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-
     </div>
   </>
 }
