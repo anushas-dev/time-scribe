@@ -57,17 +57,19 @@ export default async function Page() {
               <th scope="col">ASIN</th>
             </tr>
           </thead>
-          <tbody>
-            {book_data.map((item) => {
-              return <tr key={item.id}>
+          
+            {book_data.map((item, index) => {
+              return <tbody>
+               <tr key={index}>
                 <td>{item.node.title} </td>
                 <td>{item.node.author} </td>
                 <td>{item.node.genre} </td>
                 <td>{item.node.isbn} </td>
                 <td>{item.node.asin ? item.node.asin : "N/A"} </td>
               </tr>
+              </tbody>
             })}
-          </tbody>
+          
         </table>
       </div>
     </div>
