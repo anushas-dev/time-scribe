@@ -8,7 +8,8 @@ import { registerUrql } from '@urql/next/rsc';
 const makeClient = () => {
   return createClient({
     url: process.env.GRAFBASE_API_URL,
-    exchanges: [cacheExchange, fetchExchange],
+    exchanges: [fetchExchange, cacheExchange,],
+    suspense: true,
     fetchOptions: {
       headers: {
         'Content-Type': 'application/json',
@@ -20,19 +21,20 @@ const makeClient = () => {
 
 const BooksQuery = gql`
 {
-	bookCollection(first: 100) {
+	bookCollection(first: 10) {
 		edges {
 			node {
+				id
 				title
-        author
+				author
+				link
         genre
+        asin
         isbn
-				asin
 			}
 		}
 	}
 }
-
 `;
 
 const { getClient } = registerUrql(makeClient);
@@ -55,21 +57,23 @@ export default async function Page() {
               <th scope="col">Genre</th>
               <th scope="col">ISBN</th>
               <th scope="col">ASIN</th>
+              <th scope="col">Goodreads Link</th>
             </tr>
           </thead>
-          
-            {book_data.map((item, index) => {
-              return <tbody>
-               <tr key={index}>
+
+          {book_data ? book_data.map((item, index) => {
+            return <tbody>
+              <tr key={item}>
                 <td>{item.node.title} </td>
                 <td>{item.node.author} </td>
                 <td>{item.node.genre} </td>
-                <td>{item.node.isbn} </td>
-                <td>{item.node.asin ? item.node.asin : "N/A"} </td>
+                <td>{item.node.isbn ? item.node.isbn: 'N/A'} </td>
+                <td>{item.node.asin ? item.node.asin: 'N/A' } </td>
+                <td><Link href={item.node.link}><Image alt="" src="/images/paperclip.svg" width={20} height={20}></Image></Link></td>
               </tr>
-              </tbody>
-            })}
-          
+            </tbody>
+          }) : JSON.stringify(result.error)}
+
         </table>
       </div>
     </div>
